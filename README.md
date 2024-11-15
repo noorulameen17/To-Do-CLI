@@ -10,7 +10,7 @@ A simple Command-Line Interface (CLI) application for managing your Todo list us
 ## 🚀 Getting Started
 
 ### Prerequisites
-- [Node.js](https://nodejs.org/) (v14.x or higher)
+- [Node.js](https://nodejs.org/) 
 - [npm](https://www.npmjs.com/)
 
 ### Installation
