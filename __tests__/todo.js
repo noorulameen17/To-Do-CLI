@@ -1,33 +1,18 @@
-const { beforeAll } = require( "jest-circus" );
-const todoList = require( "../todo" );
-const { all, markAsComplete, add} = todoList();
+const db = require("../models");
 
-describe( "Todolist Test Suite", () => {
-    beforeAll( () => {
-        add(
-            {
-                title: "new todo",
-                completed: false,
-                dueDate: new Date().toLocaleDateString( "en-CA" )
-            }
-            );
-        })
-    test( "should add new todo", () => {
-        const todoItemsCount = all.length;
-        add(
-            {
-                title: "Test todo",
-                completed: false,
-                dueDate: new Date().toLocaleDateString( "en-CA" )
-            }
-        );
-        expect( all.length ).toBe(todoItemsCount + 1 );
-} );
+describe("Todolist Test Suite", () => {
+  beforeAll(async () => {
+    await db.sequelize.sync({ force: true });
+  });
 
-test( "should mark todo as complete", () => {
-    expect( all[0].completed ).toBe( false);
-    markAsComplete( 0 );
-    expect( all[ 0 ].completed ).toBe( true );
-} );  
-
-} )
+  test("Should add new todo", async () => {
+    const todoItemsCount = await db.Todo.count();
+    await db.Todo.addTask({
+      title: "Test todo",
+      completed: false,
+      dueDate: new Date(),
+    });
+    const newTodoItemsCount = await db.Todo.count();
+    expect(newTodoItemsCount).toBe(todoItemsCount + 1);
+  });
+});
