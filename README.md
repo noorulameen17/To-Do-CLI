@@ -1,41 +1,62 @@
-# To-Do-CLI
-This is a command-line interface (CLI) application for managing a Todo list using Sequelize as the ORM for database interactions.
+# 📋 To-Do-CLI
 
-Features :
+A simple Command-Line Interface (CLI) application for managing your Todo list using **Sequelize** for database interactions.
 
-Add Task: Add new tasks to your Todo list.
-Show List: Display tasks categorized as Overdue, Due Today, and Due Later.
-Mark as Complete: Mark tasks as completed.
+## ✨ Features
+- **Add Task**: Add new tasks to your Todo list.
+- **Show List**: View tasks as Overdue, Due Today, and Due Later.
+- **Mark as Complete**: Mark tasks as completed.
 
-Install Dependencies: Ensure you have "Node.js" and "npm" installed, then run:
-npm install
+## 🚀 Getting Started
 
-Set Up Database: 
-Configure your database connection in the Sequelize configuration file.
+### Prerequisites
+- [Node.js](https://nodejs.org/) (v14.x or higher)
+- [npm](https://www.npmjs.com/)
 
-Usage:
+### Installation
+1. **Clone the Repo**:
+   ```bash
+   git clone https://github.com/noorulameen17/todo-cli.git
+   cd todo-cli
+2. **Install Dependencies** :
+    ```bash
+    npm install
+3.**Set Up Database** :
+  - Edit config/config.json with your database settings.
+  - Run migrations:
+    ```bash
+    npx sequelize-cli db:migrate
+### 📚 Usage :
 
-- Add a Task
-  To add a new task, use the following command:
-
+Add a New Task
+```bash
 node addTodo.js --title "Task Title" --dueDate "YYYY-MM-DD"
+```
 
-- Show Todo List
-  To display the categorized Todo list, run:
-
+Show Todo List
+```bash
 node showList.js
+```
 
-- Mark Task as Complete
-  To mark a task as complete, use the task ID:
-
+Mark Task as Complete
+```bash
 node markComplete.js --id <task-id>
+```
+# 🗂️ Project Structure
+```bash
+├── models
+│   └── todo.js
+├── addTodo.js
+├── showList.js
+├── markComplete.js
+├── config
+│   └── config.json
+└── README.md
+```
 
-Code Structure :
 
-models/todo.js: Contains the Sequelize model for the Todo tasks, including methods for adding tasks, displaying the list, and marking tasks as complete.
 
-Contributing :
-Feel free to submit issues or pull requests for improvements or bug fixes.
 
-License
-This project is licensed under the MIT License.
+
+
+
